@@ -16,7 +16,8 @@
     "puppeteer": "latest"
   },
   "devDependencies": {
-    "bun-types": "latest"
+    "bun-types": "latest",
+    "prettier": "^3.2.5"
   },
   "module": "src/index.js"
 }

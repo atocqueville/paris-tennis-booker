@@ -1,21 +1,12 @@
 {
     "location": "Suzanne Lenglen",
     "date": "13/03/2024",
-    "hours": [
-      "14",
-      "15",
-      "16",
-      "10",
-      "11"
-    ],
-    "priceType": [
-      "Tarif plein",
-      "Tarif réduit"
-    ],
+    "hours": ["14", "15", "16", "10", "11"],
+    "priceType": ["Tarif plein", "Tarif réduit"],
     "players": [
-      {
-        "lastName": "de Tocqueville",
-        "firstName": "Marine"
-      }
+        {
+            "lastName": "de Tocqueville",
+            "firstName": "Marine"
+        }
     ]
-  }
+}

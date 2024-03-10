@@ -1,6 +1,5 @@
-import { Elysia } from 'elysia'
+import { Elysia } from 'elysia';
 
 export const bookingController = new Elysia({ prefix: '/booking' })
     .get('/', () => 'hello')
-    .get('/hi', () => 'hi')
-
+    .get('/hi', () => 'hi');
