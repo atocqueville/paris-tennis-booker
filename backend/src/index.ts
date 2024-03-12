@@ -1,5 +1,6 @@
 import { Elysia } from 'elysia';
 import swagger from '@elysiajs/swagger';
+import cors from '@elysiajs/cors';
 import chalk from 'chalk';
 
 import { registerControllers } from './server';
@@ -17,6 +18,7 @@ const gracefulShutdown = async () => {
 try {
     const app = new Elysia()
         .use(swagger())
+        .use(cors())
         .onStop(gracefulShutdown)
         .onResponse(requestLogger);
     // .onError(({ code, error, set }) => ErrorMessages(code, error, set));

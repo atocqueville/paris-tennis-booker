@@ -1,9 +1,19 @@
 import { render } from 'preact';
+import { useEffect, useState } from 'preact/hooks';
 
 import preactLogo from './assets/preact.svg';
 import './style.css';
+import { Booking } from './models/booking';
 
 export function App() {
+    const [bookings, setBookings] = useState<Booking[]>([]);
+
+    useEffect(() => {
+        fetch('http://localhost:3000/booking')
+            .then((res) => res.json())
+            .then((data) => setBookings(data.bookings));
+    }, []);
+
     return (
         <div>
             <a href="https://preactjs.com" target="_blank">
@@ -15,6 +25,14 @@ export function App() {
                 />
             </a>
             <h1>Get Started building Vite-powered Preact Apps </h1>
+
+            <h2>Bookings</h2>
+            <ul>
+                {bookings.map((booking) => (
+                    <li key={booking.id}>{booking.location}</li>
+                ))}
+            </ul>
+
             <section>
                 <Resource
                     title="Learn Preact"

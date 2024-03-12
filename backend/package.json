@@ -3,11 +3,12 @@
   "version": "1.0.50",
   "scripts": {
     "dev": "bun --watch src/index.ts",
-    "build": "bun build src/index.ts",
+    "build": "bun build src/index.ts --outdir ./dist",
     "start": "NODE_ENV=production bun src/index.ts",
     "test": "bun test"
   },
   "dependencies": {
+    "@elysiajs/cors": "^0.8.0",
     "@elysiajs/cron": "^0.8.0",
     "@elysiajs/swagger": "^0.8.5",
     "chalk": "^5.3.0",
@@ -19,5 +20,6 @@
     "bun-types": "latest",
     "prettier": "^3.2.5"
   },
-  "module": "src/index.js"
+  "module": "src/index.js",
+  "license": "MIT"
 }
