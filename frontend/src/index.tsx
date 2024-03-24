@@ -1,17 +1,20 @@
 import { render } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
+import Router, { Route } from 'preact-router';
+import { Link } from 'preact-router/match';
 
 import preactLogo from './assets/preact.svg';
 import './style.css';
 import { Booking } from './models/booking';
+import { CreatePage } from './pages/create';
 
-export function App() {
+export function Home() {
     const [bookings, setBookings] = useState<Booking[]>([]);
 
     useEffect(() => {
         fetch('http://localhost:3000/booking')
             .then((res) => res.json())
-            .then((data) => setBookings(data.bookings));
+            .then((data) => setBookings(data));
     }, []);
 
     return (
@@ -33,23 +36,9 @@ export function App() {
                 ))}
             </ul>
 
-            <section>
-                <Resource
-                    title="Learn Preact"
-                    description="If you're new to Preact, try the interactive tutorial to learn important concepts"
-                    href="https://preactjs.com/tutorial"
-                />
-                <Resource
-                    title="Differences to React"
-                    description="If you're coming from React, you may want to check out our docs to see where Preact differs"
-                    href="https://preactjs.com/guide/v10/differences-to-react"
-                />
-                <Resource
-                    title="Learn Vite"
-                    description="To learn more about Vite and how you can customize it to fit your needs, take a look at their excellent documentation"
-                    href="https://vitejs.dev"
-                />
-            </section>
+            <Link activeClassName="active" href="/create">
+                Create Booking
+            </Link>
         </div>
     );
 }
@@ -63,4 +52,13 @@ function Resource(props) {
     );
 }
 
-render(<App />, document.getElementById('app'));
+function RoutedApp() {
+    return (
+        <Router>
+            <Route path="/" component={Home} />
+            <Route path="/create" component={CreatePage} />
+        </Router>
+    );
+}
+
+render(<RoutedApp />, document.getElementById('app'));

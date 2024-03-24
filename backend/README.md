@@ -17,3 +17,17 @@ bun run dev
 ```
 
 Open http://localhost:3000/ with your browser to see the result.
+
+## Prisma CLI commands
+
+To manually re-generate the client with the Prisma CLI.
+
+```bash
+bunx prisma generate
+```
+
+To create a new migration, edit `schema.prisma` file then:
+
+```bash
+bunx prisma init --datasource-provider sqlite
+```

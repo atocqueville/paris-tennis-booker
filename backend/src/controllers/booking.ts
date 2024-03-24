@@ -1,15 +1,14 @@
 import { Elysia } from 'elysia';
+import db from '../db';
 
 export const bookingController = new Elysia({ prefix: '/booking' })
-    .get('/', ({ set }) => {
+    .get('/', async ({ set }) => {
         set.status = 200;
         set.headers['Content-Type'] = 'application/json';
-
-        return {
-            bookings: [
-                { id: 1, location: 'Booking 1' },
-                { id: 2, location: 'Booking 2' },
-            ],
-        };
+        return await db.booking.findMany({ orderBy: { startDate: 'asc' } });
     })
-    .get('/:id', ({ params }) => params);
+    .get('/:id', async ({ params }) => {
+        return await db.booking.findUniqueOrThrow({
+            where: { id: Number(params.id) },
+        });
+    });
