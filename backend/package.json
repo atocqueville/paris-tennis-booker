@@ -5,8 +5,8 @@
         "dev": "bun --watch src/index.ts",
         "build": "bun build src/index.ts --outdir ./dist",
         "start": "NODE_ENV=production bun src/index.ts",
-        "test": "bun test",
-        "init-data": "bun run prisma/seed-bookings.ts"
+        "reset": "bunx prisma migrate reset --force",
+        "studio": "bunx prisma studio"
     },
     "dependencies": {
         "@elysiajs/cors": "^0.8.0",
@@ -24,5 +24,8 @@
         "prisma": "^5.11.0"
     },
     "module": "src/index.js",
+    "prisma": {
+        "seed": "bun prisma/seed-bookings.ts"
+    },
     "license": "MIT"
 }
