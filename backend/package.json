@@ -1,22 +1,21 @@
 {
     "name": "paris-tennis-booker",
-    "version": "1.0.50",
+    "version": "0.1",
     "scripts": {
-        "dev": "bun --watch src/index.ts",
+        "dev": "NODE_ENV=development bun --watch src/index.ts",
         "build": "bun build src/index.ts --outdir ./dist",
         "start": "NODE_ENV=production bun src/index.ts",
         "reset": "bunx prisma migrate reset --force",
         "studio": "bunx prisma studio"
     },
     "dependencies": {
-        "@elysiajs/cors": "^0.8.0",
-        "@elysiajs/cron": "^0.8.0",
-        "@elysiajs/swagger": "^0.8.5",
+        "@elysiajs/cors": "^1.0.2",
+        "@elysiajs/cron": "^1.0.3",
+        "@elysiajs/swagger": "^1.0.3",
         "@prisma/client": "^5.11.0",
         "chalk": "^5.3.0",
-        "dayjs": "latest",
-        "elysia": "latest",
-        "puppeteer": "latest"
+        "dayjs": "^1.11.10",
+        "elysia": "^1.0.10"
     },
     "devDependencies": {
         "bun-types": "latest",

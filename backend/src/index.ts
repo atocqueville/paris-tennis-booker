@@ -7,9 +7,7 @@ import { registerControllers } from './server';
 import { bootLogger, requestLogger } from './logger';
 
 const gracefulShutdown = async () => {
-    console.log(
-        chalk.yellowBright('shutting down gracefully (5 seconds) ....')
-    );
+    console.log(chalk.yellowBright('shutting down gracefully (5 seconds) ...'));
     setTimeout(() => {
         process.exit();
     }, 5000);

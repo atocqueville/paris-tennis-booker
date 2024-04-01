@@ -2,13 +2,10 @@ import type { Elysia } from 'elysia';
 import chalk from 'chalk';
 
 export function bootLogger(app: Elysia) {
-    if (process.env.NODE_ENV === 'development') {
-        console.log(
-            chalk.blueBright(
-                `🦊 Elysia is running at ${app.server?.hostname}:`
-            ) + chalk.greenBright(`${app.server?.port}`)
-        );
-    }
+    console.log(
+        chalk.blueBright(`🦊 Elysia is running at ${app.server?.hostname}:`) +
+            chalk.greenBright(`${app.server?.port}`)
+    );
 }
 
 export function requestLogger(ctx: any) {
