@@ -18,10 +18,7 @@ try {
         .use(swagger())
         .use(cors())
         .onStop(gracefulShutdown)
-        .onResponse(requestLogger);
-    // .onError(({ code, error, set }) => ErrorMessages(code, error, set));
-
-    app.get('/', () => 'root route lol');
+        .onResponse({ as: 'global' }, requestLogger);
 
     registerControllers(app);
     process.on('SIGINT', app.stop);

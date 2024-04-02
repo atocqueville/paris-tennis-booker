@@ -5,8 +5,8 @@
         "dev": "NODE_ENV=development bun --watch src/index.ts",
         "build": "bun build src/index.ts --outdir ./dist",
         "start": "NODE_ENV=production bun src/index.ts",
-        "reset": "bunx prisma migrate reset --force",
-        "studio": "bunx prisma studio"
+        "reset": "NODE_ENV=development bunx prisma migrate reset --force",
+        "studio": "NODE_ENV=development bunx prisma studio"
     },
     "dependencies": {
         "@elysiajs/cors": "^1.0.2",
